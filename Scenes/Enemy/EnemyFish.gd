@@ -4,8 +4,13 @@ class_name EnemyFish
 var distance_traveled : float = 0
 var distance_to_end = 1920 + 500
 
-func init_fish(player_size : int):
+func init_fish(player_size : int, parsedSize : int, parsedSpeed : float, parsedHp : int, parsedFishName : String):
 	#Randomize fish values
+	size = parsedSize
+	speed = parsedSpeed
+	hp = parsedHp
+	fishName = parsedFishName
+
 	move_speed = randf_range(1, 3)
 	var min_size = clamp(player_size - 15, 1, SizeManager.max_player_size-1)
 	var max_size = clamp(player_size + 15, 1, SizeManager.max_player_size-1)
@@ -24,10 +29,10 @@ func _process(delta):
 func _on_body_entered(player : Fish):
 	if(not player.is_in_group("player")): #Early exit if not player
 		return
-		
 	#What happens when colliding with player.
 	if(player.size > size):
 		queue_free()
-		player.grow()
+		var calorie : float = SizeManager.calorieCalculation(player.hunger, size)
+		player.checkHunger(calorie)
 	else:
 		player.die()

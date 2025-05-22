@@ -8,7 +8,7 @@ var spawn_timer = 0
 
 func _ready():
 	spawn_player()
-	
+
 func spawn_player():
 	var player_fish = PLAYER_FISH.instantiate()
 	add_child(player_fish)
@@ -20,7 +20,7 @@ func spawn_fish():
 	add_child(newfish)
 	init_fish(newfish)
 	var player = get_tree().get_first_node_in_group("player") as Fish
-	newfish.init_fish(player.size)
+	newfish.init_fish(player.size, 2, 2, 2, "Trout")
 	
 func _process(delta):
 	#Spawn a fish every x seconds

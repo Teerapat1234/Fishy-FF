@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://j3ktaomhag8w"]
+[gd_scene load_steps=5 format=3 uid="uid://j3ktaomhag8w"]
 
+[ext_resource type="Script" path="res://Script/SizeCalculator.gd" id="1_mhy21"]
 [ext_resource type="Script" path="res://Script/FishSpawner.gd" id="3_ookas"]
 
 [sub_resource type="Gradient" id="Gradient_h2d28"]
@@ -9,6 +10,7 @@ colors = PackedColorArray(0.253011, 0.593359, 0.73774, 1, 0.549894, 0.940515, 0.
 gradient = SubResource("Gradient_h2d28")
 
 [node name="Main" type="Node2D"]
+script = ExtResource("1_mhy21")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(953.401, 550.371)

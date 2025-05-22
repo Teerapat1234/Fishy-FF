@@ -8,4 +8,3 @@ func game_over():
 
 func reset_game():
 	get_tree().reload_current_scene()
-
